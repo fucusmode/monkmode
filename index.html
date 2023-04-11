@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONK MODE</title>
+    <style>
+      body {
+        background-color: #332d21;
+        color: #e4dcb3;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 40px;
+        margin: 30px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: 30px;
+        margin: 20px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      p {
+        margin: 10px;
+        text-align: center;
+      }
+
+      #timer {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MONK MODE</h1>
+
+    <h2>RULES</h2>
+    <p>Open this site every time you wake up.</p>
+    <p>Workout everyday.</p>
+    <p>Learn on FREECODECAMP everyday.</p>
+    <p>No consuming of useless contents.</p>
+    <p>Educational contents is allowed if first 3 rules are done.</p>
+    <p>Follow these rules strictly.</p>
+
+    <h2>GOALS</h2>
+    <p>Finish FREECODECAMP course.</p>
+    <p>Be able to do OAP, handstand pushup, dunk, and get 65kg+ while getting better at fighting.</p>
+    <p>Earn PHP20,000/month.</p>
+
+    <div id="timer"></div>
+
+    <script>
+      const targetDate = new Date('2024-01-01T00:00:00');
+      const timerElem = document.getElementById('timer');
+
+      setInterval(() => {
+        const now = new Date();
+        const remainingMs = targetDate - now;
+        const remainingDays = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
+        const remainingHours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const remainingMinutes = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+        const remainingSeconds = Math.floor((remainingMs % (1000 * 60)) / 1000);
+
+        timerElem.innerText = `
+        ${remainingDays}d ${remainingHours}h ${remainingMinutes}m ${remainingSeconds}s`;
+      }, 1000);
+    </script>
+  </body>
+</html>
