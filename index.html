@@ -61,18 +61,27 @@
 
     
     <script>
-// Get the current date
-var today = new Date();
+let countEl = document.getElementById("timer");
 
-// Calculate the number of milliseconds in a day
-var oneDay = 1000 * 60 * 60 * 24;
+// Set the start date to April 23, 2023
+let startDate = new Date("April 23, 2023");
 
-// Calculate the number of days since today
-var diffDays = Math.floor((Date.now() - today) / oneDay);
+// Update the count element every second
+setInterval(updateCount, 1000);
 
-// Update the content of the HTML element with the id "timer"
-document.getElementById("timer").innerHTML = "DAY " + diffDays;
+function updateCount() {
+  // Get the current date and time
+  let now = new Date();
 
+  // Calculate the difference between the current date and the start date in seconds
+  let secondsElapsed = Math.floor((now - startDate) / 1000);
+
+  // Calculate the number of days elapsed
+  let daysElapsed = Math.floor(secondsElapsed / (24 * 60 * 60)) + 1;
+
+  // Update the count element with the number of days elapsed
+  countEl.innerHTML = "DAY " + daysElapsed;
+}
 
     </script>
   </body>
